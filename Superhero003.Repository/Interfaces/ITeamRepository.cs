@@ -9,9 +9,9 @@ namespace Superhero003.Repository.Interfaces
 {
     public interface ITeamRepository
     {
-            public Task<List<Team>> GetAll(); // signature
-            public Task<Team> GetById(int id);
-            public void CreateHero(Team hero);
+            public Task<List<Team>> GetAllTeam(); // signature
+            public Task<Team> GetTeamById(int id);
+            public Task<bool> CreateTeam(TeamDTO team);
     
     }
 }

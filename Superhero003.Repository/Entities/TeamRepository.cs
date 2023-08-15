@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Superhero003.Repository.Entities
 {
-    public class TeamRepository: ITeamRepository
+    public class TeamRepository : ITeamRepository
     {
         DatabaseContext context { get; set; }
         public TeamRepository(DatabaseContext temp) // ??
@@ -17,20 +17,27 @@ namespace Superhero003.Repository.Entities
             context = temp;
         }
 
-        public Task<List<Team>> GetAll()
+        public Task<List<Team>> GetAllTeam()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Team> GetById(int id)
+        public Task<Team> GetTeamById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void CreateHero(Team hero)
+        public Task<bool> CreateTeam(TeamDTO team)
         {
             //
-            throw new NotImplementedException();
+            Team Nteam = new();
+
+            Nteam.Id = team.Id;
+            Nteam.Name = team.Name;
+
+
+
+
         }
     }
 }

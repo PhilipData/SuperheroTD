@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Superhero003.Repository.Interfaces;
 using Superhero003.Repository.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,6 +10,12 @@ namespace Superhero003.API.Controllers
     [ApiController]
     public class TeamController : ControllerBase
     {
+        public ITeamRepository TeamRepository { get; set; }
+        public TeamController(ITeamRepository tr)
+        {
+            this.TeamRepository = tr;
+        }
+
         // GET: api/<TeamController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -25,9 +32,9 @@ namespace Superhero003.API.Controllers
 
         // POST api/<TeamController>
         [HttpPost]
-        public void Post(Team value)//[Frombody] forms
+        public void Post(TeamDTO value)//[Frombody] forms
         {
-
+            TeamRepository.CreateTeam(value);
         }
 
         [HttpPost("mathias")]
