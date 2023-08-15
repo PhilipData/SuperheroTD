@@ -38,10 +38,17 @@ namespace Superhero003.API.Controllers
         }
 
         [HttpPost("mathias")]
-        public void Post(TeamDTO value)//[Frombody] forms
+        public async Task Post(TeamDTO value)//[Frombody] forms
         {
-
+            await teamRepository.CreateTeam(value);        
         }
+
+        [HttpPost("CreateForeignRelation")]
+        public async Task<Team> CreateForeignRelation(Team value)//[Frombody] forms
+        {
+            return await teamRepository.CreateForeignRelation(value);
+        }
+
 
         // PUT api/<TeamController>/5
         [HttpPut("{id}")]
